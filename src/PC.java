@@ -18,7 +18,7 @@ public class PC
             l = this.mapa.sortear(0, 3);
             c = this.mapa.sortear(0, 3);    
         }
-        while(!this.mapa.jogar(l, c, 'O'));
+        while(!this.mapa.jogar(l, c, this.letra));
 
         System.out.println("PC[" + l + "," + c + "]");
 

@@ -3,11 +3,13 @@ public class PC
     private Mapa mapa;
     private final char letra = 'O';
 
-    public PC(final Mapa mapa){
+    public PC(Mapa mapa)
+    {
         this.mapa = mapa;
     }
 
-    public boolean jogar(){
+    public boolean jogar()
+    {
         int l;
         int c;
         
@@ -18,13 +20,14 @@ public class PC
         }
         while(!this.mapa.jogar(l, c, 'O'));
 
-        System.ou.println("PC[" + l + "," + c + "]")
+        System.out.println("PC[" + l + "," + c + "]");
 
-        if(this.mapa.ganhou('O'))
+        if(this.mapa.verificarGanhador('O'))
         {
             System.out.println(" ... PC GANHOU!");
             return true;
         }
+        return false;
     }
-    return false;
+    
 }

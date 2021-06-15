@@ -12,7 +12,7 @@ public class Jogador
     
     public boolean jogar(Scanner teclado) 
     {
-        while (!this.mapa.verificarGanhador(this.letra)) 
+        while (true) 
         {
             System.out.println("Jogador ..");
 

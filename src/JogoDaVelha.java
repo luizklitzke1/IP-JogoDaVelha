@@ -13,7 +13,7 @@ public class JogoDaVelha {
         this.jogoPC = new PC(this.jogoMapa);
         this.jogoJogador = new Jogador(this.jogoMapa);
 
-        char opcaoContinuar;
+        char continuar;
 
         do
         {
@@ -23,11 +23,12 @@ public class JogoDaVelha {
             System.out.println("Deseja jogar novamente (s/n)? ");
             System.out.println("________________________");
 
-            opcaoContinuar = teclado.next().charAt(0);
+            continuar = teclado.next().charAt(0);
         }
-        while (opcaoContinuar != 'n');
+        while (continuar != 'n');
 
         System.out.println("--- FIM ---");
+
         teclado.close();
     }
 
@@ -57,7 +58,6 @@ public class JogoDaVelha {
                     break;
                 }
             }
-                
             else
             {
                 //Verifica se o Jogador ganha
@@ -72,6 +72,8 @@ public class JogoDaVelha {
 
             PCJoga = !PCJoga;
         }
+
+        this.jogoMapa.desenhar(jogada);
 
         if (empate)
             System.out.println(" ... EMPATOU!");

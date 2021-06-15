@@ -12,8 +12,7 @@ public class Jogador
     
     public boolean jogar(Scanner teclado) 
     {
-
-        while (!this.mapa.verificarGanhador('X')) 
+        while (!this.mapa.verificarGanhador(this.letra)) 
         {
             System.out.println("Jogador ..");
 
@@ -27,14 +26,15 @@ public class Jogador
                 if (this.mapa.jogar(l, c, this.letra)) 
                     break;
                 
-                System.out.println(" posição inválida! ");
+                System.out.println(" posição inválida!");
             }
         }
-        if (this.mapa.verificarGanhador('X')) 
+        if (this.mapa.verificarGanhador(this.letra)) 
         {
             System.out.println(" ... Jogador GANHOU!");
             return true;
         }
+
         return false;
     }
 }

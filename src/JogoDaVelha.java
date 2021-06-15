@@ -10,8 +10,8 @@ public class JogoDaVelha {
         Scanner teclado = new Scanner(System.in);
 
         this.jogoMapa = new Mapa();
-        this.jogoPC = new PC(this.mapa);
-        this.jogoJogador = new Jogador(this.mapa);
+        this.jogoPC = new PC(this.jogoMapa);
+        this.jogoJogador = new Jogador(this.jogoMapa);
 
         char opcaoContinuar;
 
@@ -22,6 +22,7 @@ public class JogoDaVelha {
 
             System.out.println("Deseja jogar novamente (s/n)? ");
             System.out.println("________________________");
+
             opcaoContinuar = teclado.next().charAt(0);
         }
         while (opcaoContinuar != 'n');
@@ -37,26 +38,47 @@ public class JogoDaVelha {
         //Define quem vai começar, se sortear 1 o PC Começa;
         boolean PCJoga = (this.jogoMapa.sortear(0, 2) == 1);
 
+        boolean empate = true;
+
         int jogada = 0;
+
+        this.jogoMapa.desenhar(jogada);
 
         while (jogada < 9)
         {
+            ++jogada;
+
             if (PCJoga)
-                this.jogoPC.jogar();
+            {
+                //Verifica se o PC ganha
+                if(this.jogoPC.jogar())
+                {
+                    empate = false;
+                    break;
+                }
+            }
+                
             else
-                this.jogoJogador.jogar(teclado);
-
+            {
+                //Verifica se o Jogador ganha
+                if (this.jogoJogador.jogar(teclado))
+                {
+                    empate = false;
+                    break;
+                }
+            }
+            
             this.jogoMapa.desenhar(jogada);
-
-            //Verifica se está na ultima jogada e ninguem ganhou ainda para empatar
-            if (jogada == 8 && (!this.jogoMapa.verificarGanhador(this.jogoJogador.letra) && !this.jogoMapa.verificarGanhador(this.jogoPC.letra)))
-                System.out.println(" ... EMPATOU!");
 
             PCJoga = !PCJoga;
         }
+
+        if (empate)
+            System.out.println(" ... EMPATOU!");
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception 
+    {
         new JogoDaVelha();
     }
 }

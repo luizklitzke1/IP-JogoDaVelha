@@ -22,12 +22,12 @@ public class PC
 
         System.out.println("PC[" + l + "," + c + "]");
 
-        if(this.mapa.verificarGanhador('O'))
+        if(this.mapa.verificarGanhador(this.letra))
         {
             System.out.println(" ... PC GANHOU!");
             return true;
         }
+
         return false;
     }
-    
 }

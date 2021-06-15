@@ -1,6 +1,10 @@
 public class Mapa {
     private char[][] mapa;
 
+    public Mapa() {
+        this.mapa = new char[3][3];
+    }
+
     //Função dada pelo professor
     public int sortear(int inicio, int fim) 
     {

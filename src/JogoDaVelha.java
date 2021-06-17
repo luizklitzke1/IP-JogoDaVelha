@@ -20,8 +20,8 @@ public class JogoDaVelha {
             //Chama uma rodada e espera acabar
             this.jogar(teclado);
 
-            System.out.println("Deseja jogar novamente (s/n)? ");
             System.out.println("________________________");
+            System.out.println("Deseja jogar novamente (s/n)? ");
 
             continuar = teclado.next().charAt(0);
         }

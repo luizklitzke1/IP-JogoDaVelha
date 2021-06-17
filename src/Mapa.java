@@ -1,9 +1,5 @@
 public class Mapa {
-    private char[][] mapa;
-
-    public Mapa() {
-        this.mapa = new char[3][3];
-    }
+    private char[][] mapa = new char[3][3];
 
     //Função dada pelo professor
     public int sortear(int inicio, int fim) 
@@ -62,8 +58,7 @@ public class Mapa {
         {
             if ((this.mapa[i][0] == jogador && this.mapa[i][1] == jogador && this.mapa[i][2] == jogador) || //Horizontal
                 (this.mapa[0][i] == jogador && this.mapa[1][i] == jogador && this.mapa[2][i] == jogador)) //Vertical
-
-            return true;
+                return true;
         }
 
         return false;

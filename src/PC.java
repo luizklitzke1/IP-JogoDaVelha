@@ -1,8 +1,9 @@
 public class PC
 {
-    private Mapa mapa;
     private final char letra = 'O';
+    private Mapa mapa;
 
+    //Define o mapa na criação
     public PC(Mapa mapa)
     {
         this.mapa = mapa;

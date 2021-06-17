@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public class Jogador
 {
-    private Mapa mapa;
     private final char letra = 'X';
+    private Mapa mapa;
     
+    //Define o mapa na criação
     public Jogador(Mapa mapa) 
     {
         this.mapa = mapa;
@@ -12,14 +13,18 @@ public class Jogador
     
     public boolean jogar(Scanner teclado) 
     {
-        while (true) 
+        int l;
+        int c;
+
+        do
         {
             System.out.println("Jogador ..");
 
             System.out.print("  linha: ");
-            int l = teclado.nextInt();
+            l = teclado.nextInt();
+            
             System.out.print("  coluna: ");
-            int c = teclado.nextInt();
+            c = teclado.nextInt();
 
             if (l >= 0 && l <= 2 && c >= 0 && c <= 2) 
             {
@@ -29,6 +34,8 @@ public class Jogador
                 System.out.println(" posição inválida!");
             }
         }
+        while(!this.mapa.jogar(l, c, this.letra));
+
         if (this.mapa.verificarGanhador(this.letra)) 
         {
             System.out.println(" ... Jogador GANHOU!");

@@ -40,7 +40,7 @@ public class JogoDaVelha {
         boolean PCJoga = (this.jogoMapa.sortear(0, 2) == 1);
 
         boolean empate = true;
-
+        
         int jogada = 0;
 
         this.jogoMapa.desenhar(jogada);

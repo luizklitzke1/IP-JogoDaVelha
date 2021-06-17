@@ -53,19 +53,14 @@ public class Mapa {
         if (this.mapa[0][2] == jogador && this.mapa[1][1] == jogador && this.mapa[2][0] == jogador)
             return true;  
 
-        //Como são apenas 3 x 3 achei válido não fazer as horizontais e verticais em for
+        //Verifica as linhas
+        for (int i = 0; i < 3; ++i)
+        {
+            if ((this.mapa[i][0] == jogador && this.mapa[i][1] == jogador && this.mapa[i][2] == jogador) || //Horizontal
+                (this.mapa[0][i] == jogador && this.mapa[1][i] == jogador && this.mapa[2][i] == jogador)) //Vertical
 
-        //Verifica linhas na horizontal
-        if ((this.mapa[0][0] == jogador && this.mapa[0][1] == jogador && this.mapa[0][2] == jogador) ||
-            (this.mapa[1][0] == jogador && this.mapa[1][1] == jogador && this.mapa[1][2] == jogador) ||
-            (this.mapa[2][0] == jogador && this.mapa[2][1] == jogador && this.mapa[2][2] == jogador)) 
             return true;
-
-        //Verifica linhas na vertical
-        if ((this.mapa[0][0] == jogador && this.mapa[1][0] == jogador && this.mapa[2][0] == jogador) ||
-            (this.mapa[0][1] == jogador && this.mapa[1][1] == jogador && this.mapa[2][1] == jogador) ||
-            (this.mapa[0][2] == jogador && this.mapa[1][2] == jogador && this.mapa[2][2] == jogador)) 
-            return true;
+        }
 
         return false;
     }

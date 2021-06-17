@@ -33,6 +33,10 @@ public class Mapa {
 
     public boolean jogar(int l, int c, char jogador)
     {
+        //Evitar que saia do range da matriz
+        if (l < 0 || l > 2 || c < 0 || c > 2) 
+            return false;
+
         if (this.mapa[l][c] == ' ')
         {
             this.mapa[l][c] = jogador;

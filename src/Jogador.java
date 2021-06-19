@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-public class Jogador
-{
+public class Jogador {
     private final char letra = 'X';
     private Mapa mapa;
     

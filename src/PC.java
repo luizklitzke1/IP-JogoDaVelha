@@ -1,5 +1,4 @@
-public class PC
-{
+public class PC {
     private final char letra = 'O';
     private Mapa mapa;
 
